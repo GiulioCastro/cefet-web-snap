@@ -69,12 +69,9 @@ function atualizaMarcacao(e) {
             attributes['data-cor'].value = value;
             break;
         default:
-            if (value === 'formato-oval') {
-                if (!classList.contains('formato-oval')) classList.add('formato-oval');
-                if (classList.contains('formato-retangular')) classList.remove('formato-retangular');
-            } else if (value === 'formato-retangular') {
-                if (!classList.contains('formato-retangular')) classList.add('formato-retangular');
-                if (classList.contains('formato-oval')) classList.remove('formato-oval');
+            if (value === 'formato-oval' || value === 'formato-retangular') {
+                const colocouOval = classList.toggle('formato-oval');
+                classList.toggle('formato-retangular', !colocouOval);
             }
             break;
     }
